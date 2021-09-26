@@ -72,7 +72,10 @@ export default function GameScreen() {
 
   useEffect(() => {
     /* TODO: Call the countDown() method every 10 milliseconds */
-    setTimeout(countDown, 10);
+    const timer = setInterval(() => {
+      countDown();
+    }, 10); 
+    return () => clearInterval(timer);
   }, [timeLeft]);
 
   useEffect(() => {
